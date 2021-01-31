@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-12">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 border">
+            <h4 class="tittle">Cadastro de horários</h4>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="">Dia da semana</label>
+                            <input type="text" class="form-control" name="dia">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Hora de início</label>
+                            <input type="time" class="form-control" name="hora_inicio">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Hora de término</label>
+                            <input type="time" class="form-control" name="hora_fim">
+                        </div>
+                    </div>
+                    <div class="col-12 botao-form">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 border">
+            <h4 class="tittle">Visualizar horários</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Hora do ínicio</th>
+                        <th>Hora do fim</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in datas %}
+                    <tr>
+                        <td>{{data.dia}}</td>
+                        <td>{{data.hora_inicio}}</td>
+                        <td>{{data.hora_fim}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
