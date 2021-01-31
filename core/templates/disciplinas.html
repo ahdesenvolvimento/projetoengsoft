@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-12">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 border">
+            <h4 class="tittle">Cadastro de disciplinas</h4>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="">Nome da disciplina</label>
+                            <input type="text" class="form-control" name="nome">
+                        </div>
+                    </div>
+                
+                    <div class="col-12 botao-form">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 border">
+            <h4 class="tittle">Visualizar disicplinas</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome da disciplina</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disc in disciplinas %}
+                    <tr>
+                        <td>{{disc.nome}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
